@@ -6,7 +6,6 @@ const container = document.getElementById("productos-container");
 (async () => {
     try {
         products = await getProductsFromFakeApi();
-        console.log(products)
     } catch (error) {
         return "Hubo un error al traer los productos"
     };
