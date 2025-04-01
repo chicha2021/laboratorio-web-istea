@@ -46,7 +46,14 @@
         </div>
     </nav>
 
-    <h1 class="title-container">Lista de Productos</h1>
+    <section class="d-flex justify-content-center mt-4" >
+            <form class="d-flex w-md-50">
+                <input class="form-control me-2" type="search" placeholder="Buscá un producto" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+    </section>
+
+    <h1 class="title-container">Lista de productos</h1>
     <div class="container">
         <ul id="productos-container" style="display: flex; justify-content: center; flex-wrap: wrap; row-gap: 2rem; column-gap: 2rem;"></ul>
     </div>
