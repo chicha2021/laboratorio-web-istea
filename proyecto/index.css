@@ -1,3 +1,15 @@
+body {
+    background-color: #ebebeb
+}
+
+p {
+    margin: 0;
+}
+
+.credit-price {
+    margin-top: 12px;
+    color: green;
+}
 
 .title-container {
     text-align: center;
@@ -8,6 +20,14 @@
 .card {
     width: 250px;
     height: 400px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-color: white;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Aumenta un 5% el tamaño */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* sombra opcional para efecto visual */
 }
 
 .card img {
@@ -18,5 +38,60 @@
 
 ul .cards-container {
     display: flex;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-button {
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.button {
+    margin-right: 16px;
+    margin-bottom: 16px;
+    background-color: rgb(51, 114, 208);
+    color: white;
+    border-color:aliceblue;
+    height: 40px;
+};
+
+.button-search {
+    color: rgb(51, 114, 208);
+    border-color: rgb(51, 114, 208);
+}
+
+.badge-cart {
+    display: none;
+}
+
+.nav-item {
+    margin-right: 24px
+}
+
+@media (min-width: 768px) { 
+    .form-search {
+        width: 40%;
+    }
+
+    .nav {
+        display: flex
+    };
+}
+
+@media (max-width: 575.98px) {
+    .form-search {
+        width: 80%;
+    }
+
+    .nav {
+        display: none
+    };
 }
 
