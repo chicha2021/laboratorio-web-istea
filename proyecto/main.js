@@ -1,37 +1,48 @@
-import { getProductsFromFakeApi } from "./getProducts.js"
+import { getProductsFromFakeApi } from "./getProducts.js";
 
 let products = [];
-let productsInCart = 0;
 const container = document.getElementById("productos-container");
 
-const setElementsToCart = () => {
-    productsInCart = JSON.parse(localStorage.getItem('cart'));
-    const element = document.querySelector('#qty-cart');
-    if (productsInCart > 0 && element) {
-        element.style.display = 'block';
-        element.innerHTML = productsInCart
-    };
+const getCartFromStorage = () => JSON.parse(localStorage.getItem("cart-list")) || [];
+
+const updateCartStorage = (cart) => {
+  localStorage.setItem("cart-list", JSON.stringify(cart));
 };
 
-const addToCart = (e) => {
-    const element = document.querySelector('#qty-cart');
-    if (element) {
-        element.style.display = 'block';
-        element.innerHTML = productsInCart+=1
-        window.localStorage.setItem('cart', JSON.stringify(productsInCart))
-    }
+const updateCartQtyBadge = () => {
+  const cart = getCartFromStorage();
+  const productsInCart = cart.reduce((sum, p) => sum + p.quantity, 0);
+  const qtyCart = document.querySelector('#qty-cart');
+  if (productsInCart > 0) {
+    qtyCart.style.display = 'inline-block';
+    qtyCart.textContent = productsInCart;
+  } else {
+    qtyCart.style.display = 'none';
+  }
 };
 
+const addToCart = (product) => {
+  let cart = getCartFromStorage();
+  const index = cart.findIndex(p => p.id === product.id);
+
+  if (index !== -1) {
+    cart[index].quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  updateCartStorage(cart);
+  updateCartQtyBadge();
+};
 
 (async () => {
-    setElementsToCart();
+  updateCartQtyBadge();
     try {
         products = await getProductsFromFakeApi();
     } catch (error) {
         return "Hubo un error al traer los productos"
     };
 })();
-
 
 setTimeout(() => {
     if (products.length > 0) {
@@ -64,7 +75,7 @@ setTimeout(() => {
             container.appendChild(card);
             container.classList.add('cards-container');
             const cartButtons = card.querySelectorAll('.cart-button');
-            cartButtons[1].addEventListener('click', addToCart);
+            cartButtons[1].addEventListener('click', () => addToCart(product));
         });
         document.getElementById("grow-id").remove();
     };
