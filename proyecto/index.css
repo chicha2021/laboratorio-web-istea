@@ -161,7 +161,7 @@ ul .cards-container {
 
     .nav {
         display: flex
-    };
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -171,6 +171,10 @@ ul .cards-container {
 
     .nav {
         display: none
-    };
+    }
+
+    .cart-sidebar {
+      width: 100%;
+    }
 }
 
