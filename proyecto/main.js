@@ -1,4 +1,5 @@
 import { getProductsFromFakeApi } from "./getProducts.js"
+import { inputFilter } from "./inputFilter.js";
 
 let products = [];
 const container = document.getElementById("productos-container");
@@ -33,3 +34,5 @@ setTimeout(() => {
         document.getElementById("grow-id").remove();
     };
 }, 1000)
+
+inputFilter();
