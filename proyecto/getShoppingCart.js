@@ -4,13 +4,9 @@ const sidebar = document.getElementById("cart-sidebar");
 const cartList = document.getElementById("cart-list");
 const totalDisplay = document.getElementById("cart-total");
 const qtyCart = document.getElementById("qty-cart");
+const closeCartBtn = document.getElementById("close-cart");
 
 const getCartFromStorage = () => JSON.parse(localStorage.getItem("cart-list")) || [];
-
-const showCart = () => {
-  sidebar.classList.toggle("visible");
-  renderCart();
-}
 
 showCartBtn.addEventListener("click", () => {
   showCart();
@@ -19,6 +15,26 @@ showCartBtn.addEventListener("click", () => {
 showCartNav.addEventListener("click", () => {
   showCart();
 });
+
+closeCartBtn.addEventListener("click", () => {
+  sidebar.classList.remove("visible");
+});
+
+const showCart = () => {
+  sidebar.classList.toggle("visible");
+  renderCart();
+};
+
+document.addEventListener("click", (event) => {
+  const isClickInsideSidebar = sidebar.contains(event.target);
+  const isClickOnCartBtn = showCartBtn.contains(event.target);
+  const isClickOnCartNav = showCartNav.contains(event.target);
+
+  if (!isClickInsideSidebar && !isClickOnCartBtn && !isClickOnCartNav) {
+    sidebar.classList.remove("visible");
+  }
+});
+
 
 const renderCart = () => {
   let cart = getCartFromStorage();
@@ -144,16 +160,12 @@ const updateCartQtyBadge = () => {
   }
 }
 
-document.getElementById("close-cart").addEventListener("click", () => {
-  sidebar.classList.remove("visible");
-});
-
 const showToast = (message, color) => {
   const toast = document.getElementById('toast');
   if(color === 'success') {
-    toast.classList.add("bg-success", "text-white", "opacity-75");
+    toast.classList.add("bg-success", "text-white");
   } else if (color === 'danger') {
-    toast.classList.add("bg-danger", "text-white", "opacity-75");
+    toast.classList.add("bg-danger", "text-white");
   }
   toast.querySelector('.toast-body').textContent = message;
   const bsToast = new bootstrap.Toast(toast, {
