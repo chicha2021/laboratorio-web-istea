@@ -1,4 +1,5 @@
 import { getProductsFromFakeApi } from "./getProducts.js";
+import {inputFilter} from "./inputFilter.js";
 
 let products = [];
 const container = document.getElementById("productos-container");
@@ -21,7 +22,7 @@ const updateCartQtyBadge = () => {
   }
 };
 
-const addToCart = (product) => {
+export const addToCart = (product) => {
   let cart = getCartFromStorage();
   const index = cart.findIndex(p => p.id === product.id);
 
@@ -79,4 +80,6 @@ setTimeout(() => {
         });
         document.getElementById("grow-id").remove();
     };
-}, 1000)
+}, 1000);
+
+inputFilter();

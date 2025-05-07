@@ -34,7 +34,7 @@ p {
     width: 160px;
     height: 180px;
     margin-top: 1rem
-};
+}
 
 ul .cards-container {
     display: flex;
@@ -60,7 +60,7 @@ ul .cards-container {
     color: white;
     border-color:aliceblue;
     height: 40px;
-};
+}
 
 .button-search {
     color: rgb(51, 114, 208);
@@ -161,7 +161,7 @@ ul .cards-container {
 
     .nav {
         display: flex
-    };
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -171,6 +171,5 @@ ul .cards-container {
 
     .nav {
         display: none
-    };
+    }
 }
-

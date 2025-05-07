@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body>
+<body class="pt-5">
     <nav class="navbar navbar-light bg-white fixed-top" style="height: 65px;">
         <span class="" style=" margin-left: 15px; cursor: pointer;">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -35,14 +35,11 @@
     </nav>
 
     <section class="d-flex justify-content-center mt-4">
-        <form class="d-flex form-search">
-          <input class="form-control me-2" type="search" placeholder="Buscá un producto..." aria-label="Search">
-          <button class="btn btn-link" type="submit">
-            <!-- ícono -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-            </svg>
-          </button>
+        <form class="d-flex w-md-50" id="search">
+            <input class="form-control me-2" type="search" placeholder="Buscá un producto" aria-label="Search" id="input-filter">
+            <button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+              </svg></button>
         </form>
       </section>
 
