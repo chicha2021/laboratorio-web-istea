@@ -5,4 +5,3 @@ export const getProductsFromFakeApi = () => {
         .then(products => products);
     return products
 };
-
