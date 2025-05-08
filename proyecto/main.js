@@ -1,5 +1,6 @@
 import { getProductsFromFakeApi } from "./getProducts.js";
 import {inputFilter} from "./inputFilter.js";
+import { openProductModal } from "./openProductModal.js";
 
 let products = [];
 const container = document.getElementById("productos-container");
@@ -77,6 +78,11 @@ setTimeout(() => {
             container.classList.add('cards-container');
             const cartButtons = card.querySelectorAll('.cart-button');
             cartButtons[1].addEventListener('click', () => addToCart(product));
+
+            card.addEventListener('click', (e) => {
+              if (e.target.closest('.cart-button') || e.target.closest('button')) return;
+              openProductModal(product, addToCart);
+            });
         });
         document.getElementById("grow-id").remove();
     };
