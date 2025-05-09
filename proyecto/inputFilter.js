@@ -7,7 +7,6 @@ const btnRefresh = document.querySelector("#close-no-results");
 
 const getProducts = async () => {
   await inputFilter();
-  document.querySelector("#search").submit();
 };
 
 export const inputFilter = async () => {
@@ -68,6 +67,8 @@ export const inputFilter = async () => {
     });
   };
 
+  handleSearch();
+
   
   form.addEventListener("submit", (e) => {
     e.preventDefault(); 
@@ -78,13 +79,18 @@ export const inputFilter = async () => {
 filter.addEventListener("input", async () => {
   if (filter.value === "") {
     await getProducts();
+    
   }
 });
 
 filter.addEventListener("search", async () => {
   await getProducts();
+  
 });
 
 btnRefresh.addEventListener("click", async () => {
   await getProducts();
+  
 });
+
+getProducts();
