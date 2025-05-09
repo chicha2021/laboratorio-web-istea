@@ -3,6 +3,12 @@ import { addToCart } from "./main.js";
 
 const filter = document.querySelector("#input-filter");
 const form = document.querySelector("#search");
+const btnRefresh = document.querySelector("#close-no-results");
+
+const getProducts = async () => {
+  await inputFilter();
+  document.querySelector("#search").submit();
+};
 
 export const inputFilter = async () => {
   let data = await getProductsFromFakeApi();
@@ -21,9 +27,11 @@ export const inputFilter = async () => {
     });
     if (filterCards.length === 0) {
       document.querySelector("#no-results").style.display = "block";
+      document.querySelector("#close-no-results").style.display = "block";
       return;
     } else {
       document.querySelector("#no-results").style.display = "none";
+      document.querySelector("#close-no-results").style.display = "none";
     }
 
     filterCards.forEach((p) => {
@@ -69,12 +77,14 @@ export const inputFilter = async () => {
 
 filter.addEventListener("input", async () => {
   if (filter.value === "") {
-    await inputFilter();
-    document.querySelector("#search").submit();
+    await getProducts();
   }
 });
 
 filter.addEventListener("search", async () => {
-  await inputFilter();
-  document.querySelector("#search").submit();
+  await getProducts();
+});
+
+btnRefresh.addEventListener("click", async () => {
+  await getProducts();
 });
