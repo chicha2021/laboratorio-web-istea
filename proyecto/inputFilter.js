@@ -6,7 +6,7 @@ const form = document.querySelector("#search");
 
 export const inputFilter = async () => {
   let data = await getProductsFromFakeApi();
-
+  
   const handleSearch = () => {
     let value = filter.value.toLowerCase();
     let cardLists = document.querySelector("#productos-container");
@@ -22,6 +22,8 @@ export const inputFilter = async () => {
     if (filterCards.length === 0) {
       document.querySelector("#no-results").style.display = "block";
       return;
+    } else {
+      document.querySelector("#no-results").style.display = "none";
     }
 
     filterCards.forEach((p) => {
