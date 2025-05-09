@@ -27,7 +27,7 @@ const showCart = () => {
   renderCart();
 };
 
-const renderCart = () => {
+export const renderCart = () => {
   let cart = getCartFromStorage();
   cartList.innerHTML = "";
 
