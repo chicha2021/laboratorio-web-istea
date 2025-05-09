@@ -70,11 +70,9 @@ export const inputFilter = async () => {
 filter.addEventListener("input", async () => {
   if (filter.value === "") {
     await inputFilter();
-    document.querySelector("#search").submit();
   }
 });
 
 filter.addEventListener("search", async () => {
   await inputFilter();
-  document.querySelector("#search").submit();
 });
