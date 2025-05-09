@@ -154,6 +154,32 @@ ul .cards-container {
   font-size: 0.9em;
 }
 
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 1.5rem;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
 @media (min-width: 768px) { 
     .form-search {
         width: 40%;
@@ -161,6 +187,10 @@ ul .cards-container {
 
     .nav {
         display: flex
+    }
+
+    .modal {
+      overflow: hidden;
     }
 }
 
@@ -175,33 +205,10 @@ ul .cards-container {
     .cart-sidebar {
       width: 100%;
     }
-}
 
-
-.modal {
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 1.5rem;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 500px;
-  border-radius: 8px;
-  position: relative;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    .modal-content {
+      margin: 20% auto;
+    }
 }
 
 .modal-image {
