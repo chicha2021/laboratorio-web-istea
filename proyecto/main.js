@@ -1,6 +1,8 @@
 import { getProductsFromFakeApi } from "./getProducts.js";
 import {inputFilter} from "./inputFilter.js";
 import { openProductModal } from "./openProductModal.js";
+import { showToast } from './getToast.js'
+import { renderCart } from "./getShoppingCart.js";
 
 let products = [];
 const container = document.getElementById("productos-container");
@@ -34,7 +36,8 @@ export const addToCart = (product) => {
   }
 
   updateCartStorage(cart);
-  updateCartQtyBadge();
+  renderCart();
+  showToast("Se ha agregado el producto al carrito", "success");
 };
 
 (async () => {

@@ -93,20 +93,23 @@
 
     <div id="product-modal" class="modal" style="display: none;">
         <div class="modal-content">
-            <span id="close-modal" class="close">&times;</span>
             <img id="modal-image" src="" alt="" class="modal-image">
             <h2 id="modal-title"></h2>
+            <p id="modal-price"></p>
+            <p id="modal-installments"></p>
             <p id="modal-description"></p>
             <div class="modal-buttons">
-            <button id="add-to-cart-btn">Agregar al carrito</button>
+            <button id="add-to-cart-btn" class="btn-add">Agregar al carrito</button>
             <button id="close-button">Cerrar</button>
             </div>
         </div>
     </div>
 
-    <div style="display: flex; justify-content: center; align-items: center; height: 30vh;">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 30vh;">
         <p id="no-results" style="display: none;">No encontramos resultados para la búsqueda.</p>
+        <button class="btn btn-primary mt-4" id="close-no-results" style="display: none;">Refrescar</button>
     </div>
+
 </body>
 
 </html>

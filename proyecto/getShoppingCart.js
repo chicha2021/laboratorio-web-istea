@@ -1,3 +1,5 @@
+import { showToast } from './getToast.js'
+
 const showCartNav = document.querySelectorAll('.show-cart')[0];
 const showCartBtn = document.querySelectorAll('.show-cart')[1];
 const sidebar = document.getElementById("cart-sidebar");
@@ -25,18 +27,7 @@ const showCart = () => {
   renderCart();
 };
 
-document.addEventListener("click", (event) => {
-  const isClickInsideSidebar = sidebar.contains(event.target);
-  const isClickOnCartBtn = showCartBtn.contains(event.target);
-  const isClickOnCartNav = showCartNav.contains(event.target);
-
-  if (!isClickInsideSidebar && !isClickOnCartBtn && !isClickOnCartNav) {
-    sidebar.classList.remove("visible");
-  }
-});
-
-
-const renderCart = () => {
+export const renderCart = () => {
   let cart = getCartFromStorage();
   cartList.innerHTML = "";
 
@@ -158,18 +149,4 @@ const updateCartQtyBadge = () => {
   } else {
     qtyCart.style.display = 'none';
   }
-}
-
-const showToast = (message, color) => {
-  const toast = document.getElementById('toast');
-  if(color === 'success') {
-    toast.classList.add("bg-success", "text-white");
-  } else if (color === 'danger') {
-    toast.classList.add("bg-danger", "text-white");
-  }
-  toast.querySelector('.toast-body').textContent = message;
-  const bsToast = new bootstrap.Toast(toast, {
-    delay: 3000
-  });
-  bsToast.show();
 }
