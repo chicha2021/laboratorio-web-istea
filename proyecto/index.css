@@ -211,16 +211,40 @@ ul .cards-container {
   margin-bottom: 1rem;
 }
 
-.modal-buttons button {
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+#modal-price {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #2a7a2e;
 }
 
-.close {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  font-size: 1.5rem;
-  cursor: pointer;
+#modal-installments {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.btn-add {
+  background-color: #3372d0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+
+#close-button {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  /* Asegúrate de que no aparezca la X */
+  text-decoration: none;
+  font-size: inherit;
+}
+
+.btn-close {
+  /* Anular el estilo de la "X" */
+  display: none;
 }
